@@ -377,7 +377,9 @@
 </style>
 </head>
 <body>
-
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 <!-- ================= HERO ================= -->
 <section id="hero">
   <div class="stars" id="starsLayer"></div>
@@ -618,6 +620,20 @@
       setTimeout(()=>c.remove(), 3600);
     }
   });
+</script>
+  <script>
+window.addEventListener("load", () => {
+  const music = document.getElementById("bgMusic");
+
+  document.addEventListener(
+    "click",
+    () => {
+      music.volume = 0.4;
+      music.play();
+    },
+    { once: true }
+  );
+});
 </script>
 </body>
 </html>
