@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="hi-en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Girlfriend's Day, Somu 🐇🐟</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --deep:#241635;
+    --deep2:#1a1030;
+    --dusk:#3a2350;
+    --pink:#ff9ec9;
+    --pink-soft:#ffc7de;
+    --peach:#ffcf9c;
+    --mint:#8fe3c0;
+    --lavender:#c9b6e4;
+    --cream:#fff7ef;
+    --ink:#2a1a3a;
+    --gold:#ffd873;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Poppins',sans-serif;
+    background:var(--deep);
+    color:var(--cream);
+    overflow-x:hidden;
+    position:relative;
+  }
+  h1,h2,.display{font-family:'Fredoka',sans-serif;}
+  .hand{font-family:'Caveat',cursive;}
+
+  /* ---------- shared layout ---------- */
+  section{
+    min-height:100vh;
+    width:100%;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:80px 6vw;
+    overflow:hidden;
+  }
+  .section-label{
+    font-family:'Fredoka',sans-serif;
+    font-size:0.75rem;
+    letter-spacing:0.3em;
+    text-transform:uppercase;
+    opacity:0.6;
+    margin-bottom:14px;
+  }
+  .content{
+    max-width:720px;
+    width:100%;
+    position:relative;
+    z-index:5;
+    text-align:center;
+  }
+  p.line{
+    font-size:clamp(1rem,2.4vw,1.25rem);
+    line-height:1.9;
+    font-weight:300;
+    margin:0 auto 18px;
+    max-width:620px;
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity 0.8s ease, transform 0.8s ease;
+  }
+  p.line.reveal{opacity:1;transform:translateY(0);}
+
+  .next-btn{
+    margin-top:44px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:transparent;
+    border:1.5px solid var(--pink-soft);
+    color:var(--cream);
+    font-family:'Fredoka',sans-serif;
+    font-size:0.95rem;
+    padding:12px 28px;
+    border-radius:999px;
+    cursor:pointer;
+    transition:all 0.35s ease;
+    text-decoration:none;
+  }
+  .next-btn:hover{
+    background:var(--pink-soft);
+    color:var(--ink);
+    transform:translateY(-2px);
+    box-shadow:0 10px 26px rgba(255,158,201,0.35);
+  }
+  .next-btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
+
+  /* ---------- stickers (rabbit & fish) ---------- */
+  .sticker{position:absolute;pointer-events:none;z-index:1;opacity:0.9;}
+  .rabbit-hop{animation:hop 2.6s ease-in-out infinite;}
+  .fish-swim{animation:swim 5s ease-in-out infinite;}
+  .fish-swim2{animation:swim2 6.5s ease-in-out infinite;}
+  @keyframes hop{
+    0%,100%{transform:translateY(0) rotate(-2deg);}
+    35%{transform:translateY(-22px) rotate(3deg);}
+    60%{transform:translateY(0) rotate(-1deg);}
+  }
+  @keyframes swim{
+    0%{transform:translateX(0) translateY(0) rotate(0deg);}
+    25%{transform:translateX(18px) translateY(-10px) rotate(4deg);}
+    50%{transform:translateX(0) translateY(-4px) rotate(0deg);}
+    75%{transform:translateX(-18px) translateY(-14px) rotate(-4deg);}
+    100%{transform:translateX(0) translateY(0) rotate(0deg);}
+  }
+  @keyframes swim2{
+    0%,100%{transform:translateX(0) translateY(0) rotate(0deg) scaleX(-1);}
+    50%{transform:translateX(-24px) translateY(12px) rotate(-6deg) scaleX(-1);}
+  }
+  @keyframes twinkle{
+    0%,100%{opacity:0.2;}
+    50%{opacity:1;}
+  }
+  @keyframes drift{
+    from{transform:translateY(0);}
+    to{transform:translateY(-1200px);}
+  }
+  @keyframes rain-fall{
+    from{transform:translateY(-10vh);}
+    to{transform:translateY(110vh);}
+  }
+  @keyframes heartbeat{
+    0%,100%{transform:scale(1);}
+    15%{transform:scale(1.14);}
+    30%{transform:scale(1);}
+    45%{transform:scale(1.2);}
+    60%{transform:scale(1);}
+  }
+  @keyframes floatUp{
+    0%{transform:translateY(0) rotate(0deg);opacity:0;}
+    10%{opacity:1;}
+    100%{transform:translateY(-100vh) rotate(360deg);opacity:0;}
+  }
+  @keyframes spin-slow{ to{transform:rotate(360deg);} }
+
+  /* ---------- 0 HERO ---------- */
+  #hero{
+    background:radial-gradient(circle at 30% 20%, #3a2350 0%, var(--deep) 55%, var(--deep2) 100%);
+  }
+  #hero .stars{position:absolute;inset:0;z-index:0;}
+  .star{position:absolute;background:var(--cream);border-radius:50%;animation:twinkle 3s ease-in-out infinite;}
+  #hero h1{
+    font-size:clamp(2.3rem,7vw,4.6rem);
+    line-height:1.08;
+    background:linear-gradient(90deg,var(--pink),var(--peach) 60%,var(--gold));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    margin-bottom:18px;
+  }
+  #hero .sub{
+    font-size:clamp(1rem,2.4vw,1.2rem);
+    opacity:0.85;
+    font-weight:300;
+    margin-bottom:8px;
+  }
+  #hero .from{
+    font-family:'Caveat',cursive;
+    font-size:1.6rem;
+    color:var(--pink-soft);
+    margin-top:6px;
+  }
+  .scroll-hint{
+    margin-top:60px;
+    font-size:0.8rem;
+    opacity:0.55;
+    animation:hop 2.6s ease-in-out infinite;
+  }
+
+  /* ---------- 1 COMPARISONS ---------- */
+  #compare{
+    background:linear-gradient(180deg,var(--deep2) 0%, #16233a 50%, #10202c 100%);
+  }
+  .compare-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:18px;
+    margin-top:36px;
+    width:100%;
+  }
+  .compare-card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:22px;
+    padding:26px 16px;
+    backdrop-filter:blur(6px);
+    transition:transform 0.35s ease, background 0.35s ease;
+  }
+  .compare-card:hover{transform:translateY(-8px) scale(1.03);background:rgba(255,255,255,0.09);}
+  .compare-card .emoji{font-size:2rem;display:block;margin-bottom:10px;}
+  .compare-card .txt{font-size:0.95rem;font-weight:400;line-height:1.5;}
+
+  /* rain layer for monsoon feel */
+  .rain{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;opacity:0.35;}
+  .drop{position:absolute;width:2px;height:60px;background:linear-gradient(var(--mint),transparent);animation:rain-fall linear infinite;}
+
+  /* ---------- 2 APOLOGY ---------- */
+  #sorry{
+    background:linear-gradient(180deg,#10202c 0%, #241b33 100%);
+  }
+  #sorry .content{
+    background:rgba(255,255,255,0.04);
+    border-radius:28px;
+    padding:48px 34px;
+    border:1px solid rgba(255,255,255,0.08);
+  }
+  #sorry .tag{
+    font-family:'Caveat',cursive;
+    font-size:1.8rem;
+    color:var(--lavender);
+    margin-bottom:14px;
+    display:block;
+  }
+
+  /* ---------- 3 MARVEL / THANK YOU ---------- */
+  #marvel{
+    background:radial-gradient(circle at 70% 30%, #3a1030 0%, #241635 45%, #1a1030 100%);
+  }
+  .web-lines{position:absolute;inset:0;z-index:0;opacity:0.18;}
+  .pop{
+    display:inline-block;
+    background:linear-gradient(135deg,var(--pink),#ff5f6d);
+    color:var(--ink);
+    font-family:'Fredoka',sans-serif;
+    font-weight:600;
+    padding:6px 18px;
+    border-radius:14px;
+    transform:rotate(-3deg);
+    margin-bottom:22px;
+    box-shadow:0 8px 20px rgba(255,95,109,0.35);
+  }
+
+  /* ---------- 4 SCHOOL / DOODLE ---------- */
+  #school{
+    background:linear-gradient(180deg,#fff7ef 0%, #ffe9d6 100%);
+    color:var(--ink);
+  }
+  #school .section-label{color:var(--ink);opacity:0.5;}
+  #school p.line{color:var(--ink);}
+  #school .content{
+    background:repeating-linear-gradient(180deg, transparent, transparent 38px, rgba(42,26,58,0.08) 39px);
+    padding:40px 30px;
+    border-radius:6px;
+  }
+  #school .doodle-title{
+    font-family:'Caveat',cursive;
+    font-size:2.6rem;
+    color:#c0447a;
+    margin-bottom:18px;
+  }
+  #school .next-btn{border-color:#c0447a;color:var(--ink);}
+  #school .next-btn:hover{background:#c0447a;color:#fff;}
+
+  /* ---------- 5 ROUTINE / TIME ---------- */
+  #routine{
+    background:linear-gradient(180deg,#1a1030 0%, #2b1440 100%);
+  }
+  .heart-icon{
+    font-size:2.6rem;
+    display:inline-block;
+    animation:heartbeat 1.8s ease-in-out infinite;
+    margin-bottom:10px;
+  }
+  .infinity{font-size:2.2rem;display:block;margin:18px 0 6px;opacity:0.8;animation:spin-slow 12s linear infinite;}
+
+  /* ---------- 6 GRATITUDE ---------- */
+  #gratitude{
+    background:radial-gradient(circle at 50% 0%, #3a2350 0%, var(--deep2) 60%);
+  }
+  .thanks-row{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin:26px 0;
+  }
+  .thanks-chip{
+    background:rgba(255,216,115,0.12);
+    border:1px solid rgba(255,216,115,0.35);
+    color:var(--gold);
+    font-family:'Fredoka',sans-serif;
+    font-size:0.85rem;
+    padding:8px 16px;
+    border-radius:999px;
+  }
+
+  /* ---------- 7 BESTEST BADGES ---------- */
+  #bestest{
+    background:linear-gradient(180deg,var(--deep2) 0%, #2b1a3d 100%);
+  }
+  .badge-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    gap:14px;
+    margin:34px 0;
+    width:100%;
+  }
+  .badge{
+    background:linear-gradient(160deg, rgba(255,158,201,0.14), rgba(201,182,228,0.08));
+    border:1px solid rgba(255,255,255,0.14);
+    border-radius:18px;
+    padding:18px 10px;
+    font-family:'Fredoka',sans-serif;
+    font-size:0.88rem;
+    font-weight:500;
+    opacity:0;
+    transform:scale(0.85);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+  .badge.reveal{opacity:1;transform:scale(1);}
+  .top5{
+    margin-top:30px;
+    font-family:'Caveat',cursive;
+    font-size:1.5rem;
+    color:var(--pink-soft);
+    line-height:1.6;
+  }
+
+  /* ---------- 8 FINALE ---------- */
+  #finale{
+    background:radial-gradient(circle at 50% 30%, #4a1f4f 0%, var(--deep2) 70%);
+    padding-bottom:120px;
+  }
+  #finale h2{
+    font-size:clamp(1.8rem,5vw,3rem);
+    background:linear-gradient(90deg,var(--gold),var(--pink));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    margin-bottom:20px;
+  }
+  .confetti-btn{
+    margin-top:36px;
+    background:linear-gradient(135deg,var(--pink),var(--gold));
+    color:var(--ink);
+    border:none;
+    font-family:'Fredoka',sans-serif;
+    font-weight:600;
+    font-size:1.05rem;
+    padding:16px 34px;
+    border-radius:999px;
+    cursor:pointer;
+    box-shadow:0 12px 30px rgba(255,158,201,0.4);
+    transition:transform 0.3s ease;
+  }
+  .confetti-btn:hover{transform:translateY(-3px) scale(1.04);}
+  .confetti-btn:focus-visible{outline:3px solid var(--cream);outline-offset:3px;}
+  .signoff{
+    margin-top:38px;
+    font-family:'Caveat',cursive;
+    font-size:1.7rem;
+    color:var(--pink-soft);
+  }
+  .confetti-piece{
+    position:fixed;
+    top:-20px;
+    z-index:999;
+    border-radius:2px;
+    animation:floatUp linear forwards;
+  }
+
+  @media (max-width:600px){
+    section{padding:70px 6vw;}
+    .compare-grid{grid-template-columns:repeat(2,1fr);}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<section id="hero">
+  <div class="stars" id="starsLayer"></div>
+  <svg class="sticker rabbit-hop" style="left:8%;top:18%;width:64px;" viewBox="0 0 100 100" aria-hidden="true">
+    <ellipse cx="50" cy="68" rx="24" ry="20" fill="#fff7ef"/>
+    <ellipse cx="38" cy="30" rx="7" ry="20" fill="#fff7ef" transform="rotate(-12 38 30)"/>
+    <ellipse cx="58" cy="28" rx="7" ry="20" fill="#fff7ef" transform="rotate(10 58 28)"/>
+    <ellipse cx="38" cy="32" rx="3" ry="12" fill="#ff9ec9" transform="rotate(-12 38 32)"/>
+    <ellipse cx="58" cy="30" rx="3" ry="12" fill="#ff9ec9" transform="rotate(10 58 30)"/>
+    <circle cx="50" cy="52" r="16" fill="#fff7ef"/>
+    <circle cx="44" cy="50" r="2.2" fill="#2a1a3a"/>
+    <circle cx="56" cy="50" r="2.2" fill="#2a1a3a"/>
+    <ellipse cx="50" cy="56" rx="2.5" ry="2" fill="#ff9ec9"/>
+  </svg>
+  <svg class="sticker fish-swim" style="right:10%;top:60%;width:58px;" viewBox="0 0 100 60" aria-hidden="true">
+    <path d="M10 30 Q35 5 70 30 Q35 55 10 30 Z" fill="#8fe3c0"/>
+    <path d="M70 30 L92 15 L88 30 L92 45 Z" fill="#8fe3c0"/>
+    <circle cx="26" cy="27" r="2.5" fill="#2a1a3a"/>
+  </svg>
+  <div class="content">
+    <div class="section-label">for somu, with all of it</div>
+    <h1 class="display">Happy Girlfriend's&nbsp;Day</h1>
+    <p class="sub">to somu from her raghav</p>
+    <p class="from hand">— raghu</p>
+    <div class="scroll-hint">scroll kr pgl ↓</div>
+  </div>
+</section>
+
+<!-- ================= 1. COMPARISONS ================= -->
+<section id="compare">
+  <div class="rain" id="rainLayer"></div>
+  <svg class="sticker fish-swim2" style="left:6%;top:14%;width:50px;" viewBox="0 0 100 60" aria-hidden="true">
+    <path d="M10 30 Q35 5 70 30 Q35 55 10 30 Z" fill="#c9b6e4"/>
+    <path d="M70 30 L92 15 L88 30 L92 45 Z" fill="#c9b6e4"/>
+    <circle cx="26" cy="27" r="2.5" fill="#1a1030"/>
+  </svg>
+  <div class="content">
+    <div class="section-label">tu kaisi lagti h mujhe</div>
+    <p class="line">Happy girlfriend's day dear somu. I love you so so much yr — tu meri sweetest, cutest, guchupuchuest, pyari pyari h.</p>
+    <div class="compare-grid">
+      <div class="compare-card"><span class="emoji">🏠</span><span class="txt">mere ghr jaisi</span></div>
+      <div class="compare-card"><span class="emoji">🥶</span><span class="txt">mere 3 baje thande pani jesi</span></div>
+      <div class="compare-card"><span class="emoji">🌧️</span><span class="txt">mere monsoon ke chate jesi</span></div>
+      <div class="compare-card"><span class="emoji">🐇</span><span class="txt">rabbit jesi</span></div>
+      <div class="compare-card"><span class="emoji">🐟</span><span class="txt">fish jesi</span></div>
+      <div class="compare-card"><span class="emoji">🌌</span><span class="txt">mere universe jesi</span></div>
+<div class="compare-card"><span class="emoji">🍃</span><span class="txt">somata</span></div>
+<div class="compare-card"><span class="emoji">🐛</span><span class="txt">catterpillar</span></div>
+<div class="compare-card"><span class="emoji">🍭</span><span class="txt">chupa chups</span></div>
+<div class="compare-card"><span class="emoji">🎱</span><span class="txt">stress ball</span></div>
+<div class="compare-card"><span class="emoji">🎲</span><span class="txt">fav ludo player</span></div>
+
+
+    </div>
+    <p class="line" style="margin-top:30px;">somu I love you so much.</p>
+    <a href="#sorry" class="next-btn">agla part →</a>
+  </div>
+</section>
+
+<!-- ================= 2. SORRY ================= -->
+<section id="sorry">
+  <div class="content">
+    <span class="tag hand">love you somu</span>
+    <div class="section-label">sorry somu</div>
+    <p class="line">Aaj tera tyohar h, lekin mei kuch nhi kr paya yr. I'm really sorry somu — tere din pe bhi tu hi mujhe paal rhi h.</p>
+    <p class="line">But sorry somu, mei kabhi na kabhi toh compensate krunga yr.</p>
+    <a href="#marvel" class="next-btn">agla part →</a>
+  </div>
+</section>
+
+<!-- ================= 3. MARVEL / THANK YOU ================= -->
+<section id="marvel">
+  <svg class="web-lines" viewBox="0 0 800 800" preserveAspectRatio="none" aria-hidden="true">
+    <g stroke="#ff9ec9" stroke-width="1" fill="none">
+      <circle cx="400" cy="400" r="80"/><circle cx="400" cy="400" r="160"/><circle cx="400" cy="400" r="240"/><circle cx="400" cy="400" r="320"/>
+      <line x1="400" y1="0" x2="400" y2="800"/><line x1="0" y1="400" x2="800" y2="400"/>
+      <line x1="80" y1="80" x2="720" y2="720"/><line x1="720" y1="80" x2="80" y2="720"/>
+    </g>
+  </svg>
+  <svg class="sticker rabbit-hop" style="right:8%;bottom:10%;width:56px;" viewBox="0 0 100 100" aria-hidden="true">
+    <ellipse cx="50" cy="68" rx="24" ry="20" fill="#ffcf9c"/>
+    <ellipse cx="38" cy="30" rx="7" ry="20" fill="#ffcf9c" transform="rotate(-12 38 30)"/>
+    <ellipse cx="58" cy="28" rx="7" ry="20" fill="#ffcf9c" transform="rotate(10 58 28)"/>
+    <circle cx="50" cy="52" r="16" fill="#ffcf9c"/>
+    <circle cx="44" cy="50" r="2.2" fill="#2a1a3a"/><circle cx="56" cy="50" r="2.2" fill="#2a1a3a"/>
+  </svg>
+  <div class="content">
+    <span class="pop">thankyou spiderman 🕸️</span>
+    <div class="section-label">mera pehla theatre marvel</div>
+    <p class="line">Mujhe spiderman dikhane ke liye thanks somu yr. Mujhe hamesha se koi marvel movie theatre mei dekhni thi, lekin mei paise ke chakkar mei kabhi nhi dekhta tha.</p>
+    <p class="line">Ab teri wjaha se dekhunga. Thankyou so much janu, mujhe terse bhotototootti sara pyar h yr.</p>
+    <a href="#school" class="next-btn">agla part →</a>
+  </div>
+</section>
+
+<!-- ================= 4. SCHOOL / DOODLE ================= -->
+<section id="school">
+  <div class="content">
+    <div class="doodle-title hand"> i love you</div>
+    <div class="section-label">sochte sochte din nikal jate h</div>
+    <p class="line">Tu manegi nhi, lekin mei pure pure din, hafte, school ke periods yahi sochke nikal deta hu — somu ke liye kya kru ki vo mujhse khush hojaye.</p>
+    <p class="line">Mera pyar kabhi tere liye kam nhi hoga yr. Mei chahke bhi tujhe unlove nhi krskta hu. mei jitna tiem tere baare mei socta hu yr utni tu meri pyari pyari somu banjati h yr teri uniquness infinite h yr jb sochu tb kuch nay sochne mei ajata h so glad to have you yr</p>
+    <a href="#routine" class="next-btn">agla part →</a>
+  </div>
+</section>
+
+<!-- ================= 5. ROUTINE / TIME ================= -->
+<section id="routine">
+  <svg class="sticker fish-swim" style="left:10%;bottom:16%;width:60px;" viewBox="0 0 100 60" aria-hidden="true">
+    <path d="M10 30 Q35 5 70 30 Q35 55 10 30 Z" fill="#ff9ec9"/>
+    <path d="M70 30 L92 15 L88 30 L92 45 Z" fill="#ff9ec9"/>
+    <circle cx="26" cy="27" r="2.5" fill="#2a1a3a"/>
+  </svg>
+  <div class="content">
+    <span class="heart-icon">💗</span>
+    <div class="section-label">tu mere routine ka bhi routine h</div>
+    <p class="line">tu mere routine ka bhi routine h yr. Jb mei tere sath hota hu, mujhe sahi mei lgta h mei apni jindagi ke sath kuch krra hu.</p>
+    <p class="line">Mujhe tere sath bhotoott maja ata h, mei kabhi tere sath bore nhi ho skta.</p>
+    <span class="infinity">∞</span>
+    <p class="line">Agar tere sath 1 sec bhi 1000 saal hota, toh bhi mei kabhi iss time ko khtm nhi krna chahta yr.</p>
+    <a href="#gratitude" class="next-btn">agla part →</a>
+  </div>
+</section>
+
+<!-- ================= 6. GRATITUDE ================= -->
+<section id="gratitude">
+  <div class="content">
+    <div class="section-label">the summer somu started loving me</div>
+    <p class="line"> tu mere iss saal ka sabse acha hissa h yr merko yaadh yr jb terko dekhna chlu kiya tha kitna unachivable lgtatha kaise isse padhaunga tera merko hapydent dilwana mera lollipop dilwana hamairi ladiaya sab kitna unreal sssa h yr thankyou for evrything somu yr thanks Mera ye saal jitna acha gya h, utna teri wajah se gya h somu. I love you so much yr, mujhe nhi pata terko kaise thankyou kru.</p>
+    <div class="thanks-row">
+      <span class="thanks-chip">pyar krne ke liye</span>
+      <span class="thanks-chip">meri value dikhane ke liye</span>
+      <span class="thanks-chip">meri care krne ke liye</span>
+      <span class="thanks-chip">sabke liye</span>
+    </div>
+    <p class="line hand" style="font-size:1.5rem;color:var(--gold);">thankyou. thankyou. thankyou.</p>
+    <a href="#bestest" class="next-btn">agla part →</a>
+  </div>
+</section>
+
+<!-- ================= 7. BESTEST BADGES ================= -->
+<section id="bestest">
+  <div class="content">
+    <div class="section-label">tu iss duniya ki...</div>
+    <div class="badge-grid" id="badgeGrid">
+      <div class="badge">bestest girlfriend</div>
+      <div class="badge">bestest human</div>
+      <div class="badge">bestest account & maths student</div>
+      <div class="badge">bestest friend</div>
+      <div class="badge">bestest listener</div>
+      <div class="badge">bestest sab kuch</div>
+    </div>
+    <p class="line">Never thought mei aise gf's day pe itna cool para likhunga, uss ladki ke liye jo khudke khrche khud utha pati h. wow yr.</p>
+    <p class="top5 hand">Tu mere top 5 people I want to be, ki list mei 5th number pe h... lekin js so yk, pehle ke 4 bhi tu hi h. mei bas somu ho na chahta hu.</p>
+    <a href="#finale" class="next-btn">last part →</a>
+  </div>
+</section>
+
+<!-- ================= 8. FINALE ================= -->
+<section id="finale">
+  <svg class="sticker rabbit-hop" style="left:8%;top:12%;width:60px;" viewBox="0 0 100 100" aria-hidden="true">
+    <ellipse cx="50" cy="68" rx="24" ry="20" fill="#ffd873"/>
+    <ellipse cx="38" cy="30" rx="7" ry="20" fill="#ffd873" transform="rotate(-12 38 30)"/>
+    <ellipse cx="58" cy="28" rx="7" ry="20" fill="#ffd873" transform="rotate(10 58 28)"/>
+    <circle cx="50" cy="52" r="16" fill="#ffd873"/>
+    <circle cx="44" cy="50" r="2.2" fill="#2a1a3a"/><circle cx="56" cy="50" r="2.2" fill="#2a1a3a"/>
+  </svg>
+  <svg class="sticker fish-swim2" style="right:9%;top:20%;width:56px;" viewBox="0 0 100 60" aria-hidden="true">
+    <path d="M10 30 Q35 5 70 30 Q35 55 10 30 Z" fill="#8fe3c0"/>
+    <path d="M70 30 L92 15 L88 30 L92 45 Z" fill="#8fe3c0"/>
+    <circle cx="26" cy="27" r="2.5" fill="#1a1030"/>
+  </svg>
+  <div class="content">
+    <div class="section-label">thankyou for supporting and loving me</div>
+    <p class="line">Somu, every word you say matters the most to me. I really really hope hamara ye jo bhi h — <span class="hand" style="font-size:1.1rem;color:var(--pink-soft);">(kyuki mene toh propose nhi kiya h 😉🔗)</span> — kabhi na tute yr.</p>
+    <p class="line">Agar government terko pagal bhi boldeti, toh bhi tu meri pyari somu rahegi.</p>
+    <h2>I love you sosooss much</h2>
+    <p class="line">meri baby. meri whatsapp. meri homescreen. mere phone ka pass.</p>
+    <button class="confetti-btn" id="confettiBtn">I love you so much, thankyou 🎉</button>
+    <p class="signoff hand">— always yours, somu ka paagal 🐇🐟</p>
+  </div>
+</section>
+
+<script>
+  // twinkling stars
+  const starsLayer = document.getElementById('starsLayer');
+  for(let i=0;i<60;i++){
+    const s=document.createElement('div');
+    s.className='star';
+    const size=Math.random()*2.5+1;
+    s.style.width=size+'px';
+    s.style.height=size+'px';
+    s.style.left=Math.random()*100+'%';
+    s.style.top=Math.random()*100+'%';
+    s.style.animationDelay=(Math.random()*3)+'s';
+    starsLayer.appendChild(s);
+  }
+
+  // rain drops
+  const rainLayer = document.getElementById('rainLayer');
+  for(let i=0;i<28;i++){
+    const d=document.createElement('div');
+    d.className='drop';
+    d.style.left=Math.random()*100+'%';
+    d.style.animationDuration=(Math.random()*1.2+1.4)+'s';
+    d.style.animationDelay=(Math.random()*3)+'s';
+    rainLayer.appendChild(d);
+  }
+
+  // scroll reveal for lines and badges
+  const revealTargets = document.querySelectorAll('p.line, .badge');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('reveal');
+      }
+    });
+  },{threshold:0.3});
+  revealTargets.forEach((el,i)=>{
+    el.style.transitionDelay=(i%6)*0.08+'s';
+    io.observe(el);
+  });
+
+  // confetti burst
+  const colors=['#ff9ec9','#ffd873','#8fe3c0','#c9b6e4','#ffcf9c'];
+  document.getElementById('confettiBtn').addEventListener('click', ()=>{
+    for(let i=0;i<80;i++){
+      const c=document.createElement('div');
+      c.className='confetti-piece';
+      const size=Math.random()*8+5;
+      c.style.width=size+'px';
+      c.style.height=size*0.6+'px';
+      c.style.left=Math.random()*100+'vw';
+      c.style.background=colors[Math.floor(Math.random()*colors.length)];
+      c.style.animationDuration=(Math.random()*1.5+1.8)+'s';
+      c.style.transform=`rotate(${Math.random()*360}deg)`;
+      document.body.appendChild(c);
+      setTimeout(()=>c.remove(), 3600);
+    }
+  });
+</script>
+</body>
+</html>
